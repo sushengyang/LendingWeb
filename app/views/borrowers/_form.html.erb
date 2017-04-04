@@ -1,0 +1,72 @@
+<%= form_for(borrower) do |f| %>
+  <% if borrower.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(borrower.errors.count, "error") %> prohibited this borrower from being saved:</h2>
+
+      <ul>
+      <% borrower.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %>
+    <%= f.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Nickname %>
+    <%= f.text_field :Nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Mailing_Address %>
+    <%= f.text_field :Mailing_Address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Email %>
+    <%= f.text_field :Email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Phone %>
+    <%= f.text_field :Phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Identity %>
+    <%= f.text_field :Identity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Driver_License %>
+    <%= f.text_field :Driver_License %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SSN %>
+    <%= f.number_field :SSN %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Credit_Score %>
+    <%= f.number_field :Credit_Score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Passport %>
+    <%= f.text_field :Passport %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Visa %>
+    <%= f.text_field :Visa %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Related Dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Create date</th>
+      <th>Open date</th>
+      <th>Est closing date</th>
+      <th>Escrow open date</th>
+      <th>Prelim date</th>
+      <th>Appraisal date</th>
+      <th>Inspection date</th>
+      <th>Generate closing instruction</th>
+      <th>Order loan doc date</th>
+      <th>Closing date</th>
+      <th>Sch to refine date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @related_dates.each do |related_date| %>
+      <tr>
+        <td><%= related_date.Create_Date %></td>
+        <td><%= related_date.Open_Date %></td>
+        <td><%= related_date.Est_Closing_Date %></td>
+        <td><%= related_date.Escrow_Open_Date %></td>
+        <td><%= related_date.Prelim_Date %></td>
+        <td><%= related_date.Appraisal_Date %></td>
+        <td><%= related_date.Inspection_Date %></td>
+        <td><%= related_date.Generate_Closing_Instruction %></td>
+        <td><%= related_date.Order_Loan_Doc_Date %></td>
+        <td><%= related_date.Closing_Date %></td>
+        <td><%= related_date.Sch_To_Refine_Date %></td>
+        <td><%= link_to 'Show', related_date %></td>
+        <td><%= link_to 'Edit', edit_related_date_path(related_date) %></td>
+        <td><%= link_to 'Destroy', related_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Related Date', new_related_date_path %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Borrowers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Mailing address</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Identity</th>
+      <th>Driver license</th>
+      <th>Ssn</th>
+      <th>Credit score</th>
+      <th>Passport</th>
+      <th>Visa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @borrowers.each do |borrower| %>
+      <tr>
+        <td><%= borrower.Name %></td>
+        <td><%= borrower.Nickname %></td>
+        <td><%= borrower.Mailing_Address %></td>
+        <td><%= borrower.Email %></td>
+        <td><%= borrower.Phone %></td>
+        <td><%= borrower.Identity %></td>
+        <td><%= borrower.Driver_License %></td>
+        <td><%= borrower.SSN %></td>
+        <td><%= borrower.Credit_Score %></td>
+        <td><%= borrower.Passport %></td>
+        <td><%= borrower.Visa %></td>
+        <td><%= link_to 'Show', borrower %></td>
+        <td><%= link_to 'Edit', edit_borrower_path(borrower) %></td>
+        <td><%= link_to 'Destroy', borrower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Borrower', new_borrower_path %>

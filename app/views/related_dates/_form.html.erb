@@ -1,0 +1,72 @@
+<%= form_for(related_date) do |f| %>
+  <% if related_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(related_date.errors.count, "error") %> prohibited this related_date from being saved:</h2>
+
+      <ul>
+      <% related_date.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Create_Date %>
+    <%= f.date_select :Create_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Open_Date %>
+    <%= f.date_select :Open_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Est_Closing_Date %>
+    <%= f.date_select :Est_Closing_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Escrow_Open_Date %>
+    <%= f.date_select :Escrow_Open_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Prelim_Date %>
+    <%= f.date_select :Prelim_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Appraisal_Date %>
+    <%= f.date_select :Appraisal_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Inspection_Date %>
+    <%= f.date_select :Inspection_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Generate_Closing_Instruction %>
+    <%= f.text_area :Generate_Closing_Instruction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Order_Loan_Doc_Date %>
+    <%= f.date_select :Order_Loan_Doc_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Closing_Date %>
+    <%= f.date_select :Closing_Date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Sch_To_Refine_Date %>
+    <%= f.date_select :Sch_To_Refine_Date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

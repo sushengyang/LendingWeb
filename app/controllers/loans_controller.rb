@@ -1,6 +1,5 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
-
   # GET /loans
   # GET /loans.json
   def index
@@ -19,6 +18,8 @@ class LoansController < ApplicationController
     @borrower = Borrower.new
   end
 
+
+
   # GET /loans/1/edit
   def edit
   end
@@ -28,12 +29,12 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     @related_date = RelatedDate.new(params[:id])
-    @related_date = Borrower.new(params[:id])
+    @borrower = Borrower.new(params[:id])
 
     respond_to do |format|
       if @loan.save
-        #format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
-        format.html { redirect_to action: "index", notice: 'Loan was successfully created.' }
+        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        #format.html { redirect_to action: "index", notice: 'Loan was successfully created.' }
         format.json { render action: "index", status: :created, location: @loan }
       else
         format.html { render :new }
@@ -41,6 +42,9 @@ class LoansController < ApplicationController
       end
     end
 
+    def loan_params
+      params.require(:loan).permit(:Loan_number, :Assistant, :Manager, :Processor, :Escrow, :Creator)
+    end
    
     #def loan_params
     #  params.require(:loan).permit(:id, related_date_attributes:[:id,:Create_Date,:Open_Date,:Est_Closing_Date, :Escrow_Open_Date, :Prelim_Date, :Appraisal_Date,:Inspection_Date,:Generate_Closing_Instruction,:Order_Loan_Doc_Date,:Closing_Date,:Sch_To_Refine_Date])

@@ -100,7 +100,7 @@
   <% end %>
 
   <h2> Borrower Info</h2>
-  <%= f.fields_for :borrower do |bb| %>
+  <%= f.fields_for @borrower do |bb| %>
      <% if @borrower.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@borrower.errors.count, "error") %> prohibited this borrower from being saved:</h2>

@@ -1,11 +1,18 @@
 class BorrowersController < ApplicationController
   before_action :set_borrower, only: [:show, :edit, :update, :destroy]
+  before_filter :initialize_borrower
+
 
   # GET /borrowers
   # GET /borrowers.json
   def index
     @borrowers = Borrower.all
   end
+
+  def initialize_borrower
+    @borrower = Borrower.new
+  end
+  
 
   # GET /borrowers/1
   # GET /borrowers/1.json
@@ -61,14 +68,14 @@ class BorrowersController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_borrower
-      @borrower = Borrower.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def borrower_params
-      params.require(:borrower).permit(:Name, :Nickname, :Mailing_Address, :Email, :Phone, :Identity, :Driver_License, :SSN, :Credit_Score, :Passport, :Visa)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_borrower
+    @borrower = Borrower.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def borrower_params
+    params.require(:borrower).permit(:Name, :Nickname, :Mailing_Address, :Email, :Phone, :Identity, :Driver_License, :SSN, :Credit_Score, :Passport, :Visa)
+  end
 end
